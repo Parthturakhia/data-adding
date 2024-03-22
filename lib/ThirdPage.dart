@@ -21,9 +21,9 @@ class ThirdPage extends StatelessWidget {
             Navigator.pop(context);
           }, child: Text('Delete')),
           ElevatedButton(onPressed: (){
-            GlobalData.studentList.removeAt(GlobalData.selectedIndex);
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return EditPage();
+              var selectedIndex;
+              return EditPage(selectedIndex.GlobalData.selectedIndex, selectedIndex: null,);
             },));
           }, child: Text('Edit')),
         ],

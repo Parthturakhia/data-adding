@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab/GlobalData.dart';
+import 'package:flutter_lab/student.dart';
+
+import 'SecondPage.dart';
 
 class EditPage extends StatelessWidget {
-  const EditPage({super.key});
+  final int selectedIndex;
+
+  const EditPage(selectedIndex, {Key? key, required this.selectedIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Student studentToEdit = GlobalData.studentList[selectedIndex];
+
     return Scaffold(
       appBar: AppBar(title: Text('Edit Profile'),),
       body: Column(
@@ -24,6 +32,9 @@ class EditPage extends StatelessWidget {
             // s1.no=int.parse(txtno.text);
             // s1.name=txtname.text;
             // GlobalData.studentList.add(s1);
+
+            GlobalData.studentList[selectedIndex] = updatedStudent;
+            Navigator.pop(context);
           }, child: Text('add')),
         ],
       ),
